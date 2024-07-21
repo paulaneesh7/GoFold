@@ -19,6 +19,7 @@ func LearnVariables() {
 
 	// short-hand syntax (Used to declare a variable and assign it's value at the same time)
 	friendName := "Suvankar"
-	fmt.Println(name,"friend's name is", friendName)
+	owes := 57.4
+	fmt.Println(name,"friend's name is", friendName, "and he still owes him", owes)
 
 }
