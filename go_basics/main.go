@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
+	"go_basics/array"
 	"go_basics/error_handling"
 	"go_basics/myutil"
 	"go_basics/old"
-	"go_basics/userInput"
 	"go_basics/variables"
 )
 
@@ -17,8 +17,14 @@ func main() {
 
 	old.OldCode()
 	// userInput.UserProvidedInput1()
-	userInput.UserProvidedInput2()
+	// userInput.UserProvidedInput2()
 
 	fmt.Println("---------------------------------------")
 	error_handling.Error()
+
+	fmt.Println("---------------------------------------")
+	array.Array()
+	array.UserDefinedArray2()
+
+	
 }
