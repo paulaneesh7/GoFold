@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"go_basics/go_myutil"
-	"go_basics/go_variables"
+	"go_basics/myutil"
+	"go_basics/variables"
 )
 
 func main() {
 	fmt.Println("Hello World")
-	go_myutil.PrintMessage("Aneesh")
-	go_variables.LearnVariables()
+	myutil.PrintMessage("Aneesh")
+	variables.LearnVariables()
 }

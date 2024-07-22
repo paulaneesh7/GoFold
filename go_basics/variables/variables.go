@@ -1,4 +1,4 @@
-package go_variables
+package variables
 
 import "fmt"
 

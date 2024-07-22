@@ -1,4 +1,5 @@
-package go_myutil
+package myutil
+
 
 import "fmt"
 
