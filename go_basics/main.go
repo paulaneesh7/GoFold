@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"go_basics/error_handling"
 	"go_basics/myutil"
 	"go_basics/old"
 	"go_basics/userInput"
@@ -17,4 +18,7 @@ func main() {
 	old.OldCode()
 	// userInput.UserProvidedInput1()
 	userInput.UserProvidedInput2()
+
+	fmt.Println("---------------------------------------")
+	error_handling.Error()
 }
