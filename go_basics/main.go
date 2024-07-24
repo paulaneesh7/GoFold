@@ -6,6 +6,7 @@ import (
 	"go_basics/error_handling"
 	"go_basics/myutil"
 	"go_basics/old"
+	"go_basics/slices"
 	"go_basics/variables"
 )
 
@@ -26,5 +27,8 @@ func main() {
 	array.Array()
 	array.UserDefinedArray2()
 
+
+	fmt.Println("---------------------------------------")
+	slices.SliceBase()
 	
 }

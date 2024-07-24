@@ -17,7 +17,7 @@ func Array(){
 	fmt.Println("Length of array1 is: ", len(arr1))
 
 	// user-defined array
-	userDefinedArray()
+	// userDefinedArray()
 
 }
 
