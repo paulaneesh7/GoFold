@@ -33,8 +33,8 @@ func userDefinedArray(){
 func twoDimensionalArray(){
 	var arr[2][2] int
 	fmt.Println("Enter the elements into the 2D array: ")
-	for i:=0; i<3; i++{
-		for j:=0; j<3; j++{
+	for i:=0; i<2; i++{
+		for j:=0; j<2; j++{
 			fmt.Scan(&arr[i][j])
 		}
 	}
