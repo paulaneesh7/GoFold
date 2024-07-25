@@ -27,6 +27,7 @@ func main() {
 	}
 
 	SwitchStatement()
+	Looping()
 }
 
 func SwitchStatement(){
@@ -74,4 +75,36 @@ func SwitchStatement(){
 		default:
 			fmt.Println("Invalid month")
 	}
+}
+
+func Looping(){
+	// In Go-lang there is no while, do-while loop, only for loop exist and is used for all looping purposes
+	for i:= 0; i<5; i++{
+		fmt.Println("Number is: ", i)
+	}
+
+	// Infinite loop
+	counter := 0
+	for{
+		counter++
+		// if we don't put this condition, it will run infinitely	
+		if counter == 5{
+			break
+		}
+	}
+
+
+	// range-keyword is used to iterate over elements of an array, slice, string, map or channel
+	// range returns two values, index and value
+	numbers := []int{1, 2, 3, 4, 5}
+	for index, value := range numbers{
+		fmt.Println("Index: ", index, " Value: ", value)
+	}
+
+
+	str := "Characters"
+	for i, c := range str{
+		fmt.Printf("Character at index %d is %c\n", i, c)
+	}
+
 }
