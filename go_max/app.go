@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go_max/profit"
+	"go_max/bank_package"
 )
 
 func main() {
@@ -10,6 +10,7 @@ func main() {
 	fmt.Println("------------------------------------------")
 	// investment.InvestmentCalculator()
 	fmt.Println("------------------------------------------")
-	profit.ProfitCalculator()
+	// profit.ProfitCalculator()
 	// bank.Bank()
+	bank_package.Bank()
 }

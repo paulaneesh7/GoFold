@@ -1,10 +1,7 @@
 package bank_package
 
 import (
-	"errors"
 	"fmt"
-	"os"
-	"strconv"
 )
 
 const accountBalanceFile = "balance.txt"
@@ -20,13 +17,8 @@ func Bank() {
 	
 	for {
 		
-		fmt.Println("Welcome to Go Bank")
-		fmt.Println("What do you want to do?")
-		fmt.Println("1. Check balance")
-		fmt.Println("2. Deposit money")
-		fmt.Println("3. Withdraw money")
-		fmt.Println("4. Exit")
-
+		presentOptions()
+		
 		var choice int
 		fmt.Print("Enter you choice: ")
 		fmt.Scan(&choice)
@@ -71,29 +63,5 @@ func Bank() {
 	fmt.Println(("Thank you for using Go Bank"))
 }
 
-func writeFloatToFile(value float64, fileName string){
 
-	// converting value to string
-	valueText := fmt.Sprint(value)
-
-	os.WriteFile(fileName, []byte(valueText), 0644) // 0644 is the permission to read and write the file
-}
-
-func getFloatFromFile(fileName string) (float64, error) {
-	content, err := os.ReadFile(fileName)
-	if err != nil {
-		return 1000, errors.New("failed to read file")
-	}
-
-	valueText := string(content)
-
-	// now we wikll convert the balanceText to float64
-	value, err := strconv.ParseFloat(valueText, 64)
-
-	if err != nil {
-		return 1000, errors.New("failed to parse stored value.")
-	}
-
-	return value, nil
-}
 
