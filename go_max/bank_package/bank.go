@@ -1,4 +1,4 @@
-package bank
+package bank_package
 
 import (
 	"errors"
@@ -7,9 +7,12 @@ import (
 	"strconv"
 )
 
+const accountBalanceFile = "balance.txt"
+
+
 func Bank() {
 
-	var accoountBalance, err = readBalanceFromFile()
+	var accoountBalance, err = getFloatFromFile(accountBalanceFile)
 	if err != nil {
 		fmt.Println("Failed to read balance from file", err)
 		fmt.Println("------------------")
@@ -43,7 +46,7 @@ func Bank() {
 
 			accoountBalance += depositAmount
 			fmt.Println("Balance updated 🫡! New account balance: ", accoountBalance)
-			writeBalanceToFile(accoountBalance)
+			writeFloatToFile(accoountBalance, accountBalanceFile)
 		} else if choice == 3 {
 			var withdrawAmount float64
 			fmt.Print("Enter the amount you want to withdraw: ")
@@ -54,7 +57,7 @@ func Bank() {
 			}else{
 				accoountBalance -= withdrawAmount
 				fmt.Println("Balance updated 🫡! New account balance: ", accoountBalance)
-				writeBalanceToFile(accoountBalance)
+				writeFloatToFile(accoountBalance, accountBalanceFile)
 			}
 		} else if choice == 4 {
 			fmt.Println("Thank you for using Go Bank")
@@ -68,29 +71,29 @@ func Bank() {
 	fmt.Println(("Thank you for using Go Bank"))
 }
 
-func writeBalanceToFile(balance float64){
+func writeFloatToFile(value float64, fileName string){
 
-	// converting balance to string
-	balanceText := fmt.Sprint(balance)
+	// converting value to string
+	valueText := fmt.Sprint(value)
 
-	os.WriteFile("balance.txt", []byte(balanceText), 0644) // 0644 is the permission to read and write the file
+	os.WriteFile(fileName, []byte(valueText), 0644) // 0644 is the permission to read and write the file
 }
 
-func readBalanceFromFile() (float64, error) {
-	content, err := os.ReadFile("balance.txt")
+func getFloatFromFile(fileName string) (float64, error) {
+	content, err := os.ReadFile(fileName)
 	if err != nil {
 		return 1000, errors.New("failed to read file")
 	}
 
-	balanceText := string(content)
+	valueText := string(content)
 
 	// now we wikll convert the balanceText to float64
-	accountBalance, err := strconv.ParseFloat(balanceText, 64)
+	value, err := strconv.ParseFloat(valueText, 64)
 
 	if err != nil {
-		return 1000, errors.New("failed to parse stored balance value.")
+		return 1000, errors.New("failed to parse stored value.")
 	}
 
-	return accountBalance, nil
+	return value, nil
 }
 
