@@ -23,11 +23,11 @@ func getFloatFromFile(fileName string) (float64, error) {
 
 	valueText := string(content)
 
-	// now we wikll convert the balanceText to float64
+	// now we will convert the balanceText to float64
 	value, err := strconv.ParseFloat(valueText, 64)
 
 	if err != nil {
-		return 1000, errors.New("failed to parse stored value.")
+		return 1000, errors.New("failed to parse stored value")
 	}
 
 	return value, nil
