@@ -14,6 +14,15 @@ type User struct {
 	createdAt time.Time
 }
 
+// Admin struct which embeds User struct, this is kinda like Inheritance - Java
+type Admin struct {
+	email string
+	password string
+	AdminUser User
+}
+
+
+
 /* Attaching the function to the struct, so that's why (u User) at the begining */
 func (u User) OutputDetails(){
 	fmt.Println("First Name: ", u.firstName, "Last Name: ", u.lastName, "Birth Date: " , u.birthdate)
@@ -41,4 +50,18 @@ func NewUser(firstName, lastName, birthdate string) (*User, error){
 		birthdate: birthdate,
 		createdAt: time.Now(),
 	}, nil
+}
+
+// Admin constructor that contains nested-User struct
+func NewAdmin(email, password string) Admin {
+	return Admin{
+		email: email,
+		password: password,
+		AdminUser: User{
+			firstName: "Admin",
+			lastName: "Admin",
+			birthdate: "-------",
+			createdAt: time.Now(),
+		},
+	}
 }

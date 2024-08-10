@@ -21,6 +21,10 @@ func StructInitial() {
 		return
 	}
 
+	// Admin constructor that contains nested-User struct
+	admin := user.NewAdmin("admin.test@gmail.com", "123456")
+	admin.AdminUser.OutputDetails()
+
 	
 	// ... do something awesome with that gathered data, for practse purpose we are using pointers here
 	appUser.OutputDetails()
