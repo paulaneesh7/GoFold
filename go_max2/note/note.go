@@ -1,8 +1,11 @@
 package note
 
 import (
+	"bufio"
 	"fmt"
 	notestruct "go_max2/note_struct"
+	"os"
+	"strings"
 )
 
 func NoteCreate() {
@@ -16,6 +19,12 @@ func NoteCreate() {
 	}
 
 	userNote.Display()
+	err = userNote.Save()
+
+	if err != nil {
+		fmt.Println("Error saving note:", err)
+		return
+	}
 
 }
 
@@ -34,10 +43,17 @@ func getNoteData() (string, string) {
 func getUserInput(prompt string) string {
 	fmt.Println(prompt)
 
-	var value string
-	fmt.Scanln(&value)
+	reader := bufio.NewReader(os.Stdin) // creating a reader that listens on command line input
 
+	text, err := reader.ReadString('\n')
+
+	if err != nil {
+		return ""
+	}
+
+	text = strings.TrimSuffix(text, "\n")
+	text = strings.TrimSuffix(text, "\r")
 	
 
-	return value
+	return text
 }
