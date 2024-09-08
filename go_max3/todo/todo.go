@@ -10,17 +10,15 @@ import (
 )
 
 // Any struct that implements the saver interface must have a Saver method and Returns an error.
-type saver interface{
+type saver interface {
 	Save() error
 }
 
-
 // Embedding saver interface and Display method together in the outputtable interface.
-type outputtable interface{
+type outputtable interface {
 	saver
 	Display()
 }
-
 
 func CreateTodo() {
 	title, content := getNoteData()
@@ -48,7 +46,6 @@ func CreateTodo() {
 	outputData(userNote)
 
 }
-
 
 func getNoteData() (string, string) {
 	title := getUserInput("Note title:")
