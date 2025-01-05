@@ -57,6 +57,16 @@ func switch_day() {
 	}
 }
 
+// Defer statements
+func defer_statements() {
+	fmt.Println("Counting")
+
+	for i:=0; i<10; i++ {
+		defer fmt.Print(i, " ")
+	}
+
+	fmt.Println("Done")
+}
 
 
 func Basics1() {
@@ -78,5 +88,8 @@ func Basics1() {
 	// Switch Case
 	switch_case()
 	switch_day()
+
+	// Defer Statements
+	defer_statements()
 
 }
