@@ -38,6 +38,18 @@ func struct_usecase() {
 	fmt.Println("Struct field after changing their value using pointer: ",v)
 }
 
+
+func array_type() {
+	var a [2]string
+	a[0] = "Hello"
+	a[1] = "World"
+	fmt.Println(a[0], a[1])
+	fmt.Println(a)
+
+	primes := [6]int{2, 3, 5, 7, 11, 13} // another types of syntax to write array
+	fmt.Println(primes)
+}
+
 func Basics2() {
 	fmt.Println("More types: structs, slices, maps….")
 
@@ -48,4 +60,8 @@ func Basics2() {
 
 	// structs
 	struct_usecase()
+
+	// Arrays
+	array_type()
+
 }
