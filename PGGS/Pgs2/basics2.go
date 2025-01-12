@@ -63,5 +63,7 @@ func Basics2() {
 
 	// Arrays
 	array_type()
+	Array_basics()
+	Dynamic_Arrays()
 
 }
