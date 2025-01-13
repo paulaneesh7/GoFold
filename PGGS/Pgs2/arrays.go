@@ -45,4 +45,11 @@ func Dynamic_Arrays() {
 	// Creating Dynamic Array (not mentioning size)
 	prices := []float64{10.99, 5.45, 67.89, 1.23}
 	fmt.Println(prices[1])
+
+	// Adding new element to the array
+	updatePrices := append(prices, 100.12)
+	fmt.Println("Updated prices after appending: ", updatePrices)
+	fmt.Println("Original prices array: ", prices)
+
+	Practise_Arrays()
 }
