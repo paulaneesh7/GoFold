@@ -66,4 +66,7 @@ func Basics2() {
 	Array_basics()
 	Dynamic_Arrays()
 
+	// Map
+	Maps_Go()
+
 }

@@ -51,5 +51,5 @@ func Dynamic_Arrays() {
 	fmt.Println("Updated prices after appending: ", updatePrices)
 	fmt.Println("Original prices array: ", prices)
 
-	Practise_Arrays()
+	// Practise_Arrays()
 }
