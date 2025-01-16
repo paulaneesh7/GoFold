@@ -69,4 +69,8 @@ func Basics2() {
 	// Map
 	Maps_Go()
 
+	// Make function for creating arrays and slices
+	Make_Array()
+	Make_Maps()
+
 }
