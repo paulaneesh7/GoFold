@@ -14,6 +14,7 @@ func main() {
 	for _, taxRate := range taxRate {
 		priceJobs := prices.NewTaxIncludedPriceJob(taxRate)
 		priceJobs.Process()
+		priceJobs.LoadData()
 	}
 
 }
