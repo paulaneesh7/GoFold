@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"github.com/paulaneesh7/tax_calculator/conversion"
 )
 
 type TaxIncludedPriceJob struct {
@@ -12,7 +13,7 @@ type TaxIncludedPriceJob struct {
 	TaxIncludedPrices map[string]float64
 }
 
-func (job TaxIncludedPriceJob) LoadData() {
+func (job *TaxIncludedPriceJob) LoadData() {
 	content, err := os.Open("prices.txt")
 	if err != nil {
 		fmt.Println("Could not open the file: ", err)
@@ -35,10 +36,18 @@ func (job TaxIncludedPriceJob) LoadData() {
 		return
 	}
 
-	// Print the content of the file from the slice where we appended it
-	for _, line := range lines {
-		fmt.Println(line)
+	// Here we will store all the prices from the file
+	prices := make([]float64, len(lines))
+
+	prices, err = conversion.StringsToFloats(lines) // Convert the string to float and store it in the prices slice
+	if err != nil {
+		fmt.Println("Failed to convert the string to float: ", err)
+		defer content.Close();
+		return
 	}
+
+
+	job.InputPrices = prices // Assign the prices to the struct field
 
 	defer content.Close();
 }
@@ -46,10 +55,16 @@ func (job TaxIncludedPriceJob) LoadData() {
 
 
 func (job TaxIncludedPriceJob) Process() {
-	result := make(map[string]float64)
+
+	job.LoadData()
+
+	result := make(map[string]string)
 
 	for _, price := range job.InputPrices {
-		result[fmt.Sprintf("%.2f", price)] = price * (1 + job.TaxRate)
+		taxIncludedPrice := price * (1 + job.TaxRate)
+		result[fmt.Sprintf("%.2f", price)] = fmt.Sprintf("%.2f", taxIncludedPrice)
+		// the above line to store the price and the tax included price in the map as string
+		// also why we changed the return type of the function to map[string]string instead of float64
 	}
 
 	fmt.Println(result)	
