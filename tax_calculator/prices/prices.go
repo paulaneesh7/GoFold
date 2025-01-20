@@ -10,12 +10,13 @@ import (
 type TaxIncludedPriceJob struct {
 	TaxRate           float64
 	InputPrices       []float64
-	TaxIncludedPrices map[string]float64
+	TaxIncludedPrices map[string]string
+	IOManager filemanager.FileManager
 }
 
 func (job *TaxIncludedPriceJob) LoadData() {
 
-	lines, err := filemanager.ReadLines("prices.txt") // Read the prices from the file
+	lines, err := job.IOManager.ReadLines() // Read the prices from the file
 	if err != nil {
 		fmt.Println("Failed to read the prices from the file: ", err)
 		return
@@ -44,12 +45,16 @@ func (job TaxIncludedPriceJob) Process() {
 		// also why we changed the return type of the function to map[string]string instead of float64
 	}
 
-	fmt.Println(result)
+	job.TaxIncludedPrices = result
+
+	// Write the result to the file
+	job.IOManager.WriteJSON(job)
 }
 
-func NewTaxIncludedPriceJob(taxRate float64) *TaxIncludedPriceJob {
+func NewTaxIncludedPriceJob(fm filemanager.FileManager, taxRate float64) *TaxIncludedPriceJob {
 	return &TaxIncludedPriceJob{
 		InputPrices: []float64{10, 20, 30},
 		TaxRate:     taxRate,
+		IOManager:   fm,
 	}
 }

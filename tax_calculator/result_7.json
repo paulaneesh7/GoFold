@@ -1,0 +1,14 @@
+{
+  "TaxRate": 0.07,
+  "InputPrices": [9.99, 10.49, 15.67, 23],
+  "TaxIncludedPrices": {
+    "10.49": "11.22",
+    "15.67": "16.77",
+    "23.00": "24.61",
+    "9.99": "10.69"
+  },
+  "IOManager": {
+    "InputFilePath": "prices.txt",
+    "OutputFilePath": "result_7.json"
+  }
+}
