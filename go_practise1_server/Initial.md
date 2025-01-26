@@ -21,13 +21,13 @@ A simple CRUD API Server in GoLang which will contain endpoints for creating, re
 
 ## Task List Example
 
-- [ ] Create a new project and then a new Go file and initially keep everything in a single file
-- [ ] Add the necessary imports.
-- [ ] Create a structs for the necessary fields.
-- [ ] Create a new DB (dummy).
+- [x] Create a new project and then a new Go file and initially keep everything in a single file
+- [x] Add the necessary imports.
+- [x] Create structs for the necessary fields.
+- [x] Create a new DB (dummy).
 - [ ] Create POST endpoint **{/api/products}** and its respective controller for creating/adding a new product from manufacturer side.
-- [ ] Create GET endpoint **{/api/products}** and its respective controller for fetching all the products from the DB.
-- [ ] Create a GET endpoint **{/api/products/{id}}** and its respective controller for fetching a product by its id.
+- [x] Create GET endpoint **{/api/products}** and its respective controller for fetching all the products from the DB.
+- [x] Create a GET endpoint **{/api/products/{id}}** and its respective controller for fetching a product by its id.
 - [ ] Create a PUT endpoint **{/api/products/{id}}** and its respective controller for updating a product by its id.
 - [ ] Create a DELETE endpoint **{/api/products/{id}}** and its respective controller for deleting a product by its id.
 - [ ] Now run the server and test the endpoints.
