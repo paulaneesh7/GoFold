@@ -14,8 +14,7 @@ const dbName = "Netflix"
 const colName = "Netflix" // here colName is the collection name
 
 // MOST IMPORTANT
-var collection *mongo.Collection
-
+var Collection *mongo.Collection
 
 // Connect with MongoDB
 func init() {
@@ -31,8 +30,7 @@ func init() {
 	fmt.Println("Connected to MongoDB!")
 
 	// This collection instance is what we will work with throughout the project
-	collection = client.Database(dbName).Collection(colName)
-
+	Collection = client.Database(dbName).Collection(colName)
 
 	// Check whether collection instance is ready
 	fmt.Println("Collection instance is Ready✅")
