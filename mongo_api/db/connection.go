@@ -11,7 +11,7 @@ import (
 
 const connectionString = "mongodb+srv://aneesh16117:aGW3OndfzLb0kFmT@cluster0.jtbbc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 const dbName = "Netflix"
-const colName = "Netflix" // here colName is the collection name
+const colName = "WatchList" // here colName is the collection name
 
 // MOST IMPORTANT
 var Collection *mongo.Collection

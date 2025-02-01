@@ -1,8 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"net/http"
+
+	"github.com/paulaneesh7/mongo_api/router"
+)
 
 
 func main() {
-	fmt.Println("Hello, World!")
+	
+	router := router.Router()
+	fmt.Println("Server is starting...")
+
+
+	// start the server on port 8080
+	log.Fatal(http.ListenAndServe(":8080", router))
+	fmt.Println("Listening on port 8080")
+
 }

@@ -14,7 +14,7 @@ import (
 
 // GET
 func GetAllMoviesController(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/x-wwww-form-urlencoded")
+	w.Header().Set("Content-Type", "application/json")
 	movies := helpers.GetAllMovies()
 	json.NewEncoder(w).Encode(movies)
 
@@ -22,19 +22,19 @@ func GetAllMoviesController(w http.ResponseWriter, r *http.Request) {
 
 // POST
 func CreateMovieController(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/x-wwww-form-urlencoded")
+	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Allow-Control-Allow-Method", "POST")
 
 	var movie model.Netflix
 	_ = json.NewDecoder(r.Body).Decode(&movie)
 
 	helpers.InsertOneMovie(movie)
-	json.NewEncoder(w).Encode(movie)
+	json.NewEncoder(w).Encode("Movie added successfully")
 }
 
 // PUT
 func UpdateMovieController(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/x-wwww-form-urlencoded")
+	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Allow-Control-Allow-Method", "PUT")
 
 	params := mux.Vars(r)
@@ -46,7 +46,7 @@ func UpdateMovieController(w http.ResponseWriter, r *http.Request) {
 
 // DELETE - ONE
 func DeleteMovieController(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/x-wwww-form-urlencoded")
+	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Allow-Control-Allow-Method", "DELETE")
 
 	params := mux.Vars(r)
@@ -58,7 +58,7 @@ func DeleteMovieController(w http.ResponseWriter, r *http.Request) {
 
 // DELETE - MANY
 func DeleteAllMoviesController(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/x-wwww-form-urlencoded")
+	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Allow-Control-Allow-Method", "DELETE")
 
 	count := helpers.DeleteManyMovies()
