@@ -98,7 +98,7 @@ func DeleteOneMovie(id string) {
 
 
 // DELETE Many Records
-func DeleteManyMovies(movie model.Netflix ) int64 {
+func DeleteManyMovies() int64 {
 	
 	// M -> Unordered , D -> Ordered and by passing bson.M{{}} we mean that we want to delete everything present in the collection
 	filter := bson.D{{}}
