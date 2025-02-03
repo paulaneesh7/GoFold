@@ -26,10 +26,8 @@ func InsertOneMovie(movie model.Netflix) {
 
 }
 
-
-
 // GET All Records
-func GetAllMovies() [] model.Netflix {
+func GetAllMovies() []model.Netflix {
 
 	// we created a seperated variable for context here in this case because we will be using it frequently
 	ctx := context.Background()
@@ -38,9 +36,7 @@ func GetAllMovies() [] model.Netflix {
 		log.Fatal(err.Error())
 	}
 
-
-	var movies[] model.Netflix
-
+	var movies []model.Netflix
 
 	// Iterate over the cursor and print each record
 	for cursor.Next(ctx) {
@@ -58,8 +54,6 @@ func GetAllMovies() [] model.Netflix {
 	fmt.Println("All movies: ", movies)
 	return movies
 }
-
-
 
 // UPDATE 1 Record
 func UpdateOneMovie(id string) {
@@ -79,7 +73,6 @@ func UpdateOneMovie(id string) {
 	fmt.Println("Modified Count: ", res.ModifiedCount)
 }
 
-
 // DELETE 1 Record
 func DeleteOneMovie(id string) {
 	Id, err := primitive.ObjectIDFromHex(id)
@@ -96,10 +89,9 @@ func DeleteOneMovie(id string) {
 	fmt.Println("Deleted Count: ", res.DeletedCount)
 }
 
-
 // DELETE Many Records
 func DeleteManyMovies() int64 {
-	
+
 	// M -> Unordered , D -> Ordered and by passing bson.M{{}} we mean that we want to delete everything present in the collection
 	filter := bson.D{{}}
 	res, err := db.Collection.DeleteMany(context.Background(), filter)
